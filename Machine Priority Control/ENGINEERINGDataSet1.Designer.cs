@@ -7524,7 +7524,7 @@ SELECT TYPEID, TYPEDESC, TYPEINC, TYPEREP FROM CUT_PART_TYPES WHERE (TYPEID = @T
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CUT_PARTS] ([PARTNUM], [DESCR], [FIN_L], [FIN_W], [THICKNESS], [CNC1], [CNC2], [BLANKQTY], [OVER_L], [OVER_W], [OP1ID], [OP2ID], [OP3ID], [OP4ID], [OP5ID], [COMMENT], [UPDATE_CNC], [TYPE], [HASH]) VALUES (@PARTNUM, @DESCR, @FIN_L, @FIN_W, @THICKNESS, @CNC1, @CNC2, @BLANKQTY, @OVER_L, @OVER_W, @OP1ID, @OP2ID, @OP3ID, @OP4ID, @OP5ID, @COMMENT, @UPDATE_CNC, @TYPE, @HASH);
-SELECT PARTID, PARTNUM, DESCR, FIN_L, FIN_W, THICKNESS, CNC1, CNC2, BLANKQTY, OVER_L, OVER_W, OP1ID, OP2ID, OP3ID, OP4ID, OP5ID, COMMENT, UPDATE_CNC, TYPE, HASH FROM CUT_PARTS WHERE (PARTID = SCOPE_IDENTITY())";
+SELECT PARTID, PARTNUM, DESCR, FIN_L, FIN_W, THICKNESS, CNC1, CNC2, BLANKQTY, OVER_L, OVER_W, OP1ID, OP2ID, OP3ID, OP4ID, OP5ID, COMMENT, UPDATE_CNC, TYPE, HASH FROM CUT_PARTS WHERE (PARTID = SCOPE_IDENTITY()) ORDER BY PARTNUM";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PARTNUM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PARTNUM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCR", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7570,7 +7570,7 @@ SELECT PARTID, PARTNUM, DESCR, FIN_L, FIN_W, THICKNESS, CNC1, CNC2, BLANKQTY, OV
                 " = 1 AND [HASH] IS NULL) OR ([HASH] = @Original_HASH)));\r\nSELECT PARTID, PARTNUM" +
                 ", DESCR, FIN_L, FIN_W, THICKNESS, CNC1, CNC2, BLANKQTY, OVER_L, OVER_W, OP1ID, O" +
                 "P2ID, OP3ID, OP4ID, OP5ID, COMMENT, UPDATE_CNC, TYPE, HASH FROM CUT_PARTS WHERE " +
-                "(PARTID = @PARTID)";
+                "(PARTID = @PARTID) ORDER BY PARTNUM";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PARTNUM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PARTNUM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCR", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7642,7 +7642,7 @@ SELECT PARTID, PARTNUM, DESCR, FIN_L, FIN_W, THICKNESS, CNC1, CNC2, BLANKQTY, OV
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PARTID, PARTNUM, DESCR, FIN_L, FIN_W, THICKNESS, CNC1, CNC2, BLANKQTY, OVE" +
                 "R_L, OVER_W, OP1ID, OP2ID, OP3ID, OP4ID, OP5ID, COMMENT, UPDATE_CNC, TYPE, HASH " +
-                "FROM dbo.CUT_PARTS";
+                "FROM dbo.CUT_PARTS ORDER BY PARTNUM;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
