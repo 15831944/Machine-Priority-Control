@@ -31,8 +31,33 @@ namespace Machine_Priority_Control {
     //[CommandMethod("MyGroup", "MyCommand", "MyCommandLocal", CommandFlags.Modal)]
     [CommandMethod("MachinePriority")]
     public void MachinePriority() {
-      MachinePriority mp = new MachinePriority();
+      Document doc = Application.DocumentManager.MdiActiveDocument;
+      Editor ed = doc.Editor;
+      ObjectId[] o = select_entites(ed);
+      System.Collections.Generic.List<ObjectId> ids = new System.Collections.Generic.List<ObjectId>();
+      using(Transaction tr = doc.TransactionManager.StartTransaction()) {
+        foreach (var id in o) {
+          Entity ent = (Entity)tr.GetObject(id, OpenMode.ForRead);
+          ids.Add(id);
+          ent.Highlight();
+        }
+        tr.Commit();
+	    }
+      MachinePriority mp = new MachinePriority(ids[0].ToString());
       mp.ShowDialog();
+    }
+
+    private static ObjectId[] select_entites(Editor ed) {
+      TypedValue[] vals = new TypedValue[] {
+        new TypedValue((int)DxfCode.Start, "TEXT"),
+        new TypedValue((int)DxfCode.LayoutName, "MODEL")
+      };
+      PromptSelectionResult res = ed.SelectAll(new SelectionFilter(vals));
+      if (res.Status == PromptStatus.OK) {
+        return res.Value.GetObjectIds();
+      } else {
+        return null;
+      }
     }
 
     // Modal Command with pickfirst selection
