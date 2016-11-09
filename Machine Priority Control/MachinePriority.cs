@@ -20,6 +20,7 @@ namespace Machine_Priority_Control {
     }
 
     private void Form1_Load(object sender, EventArgs e) {
+      this.Show();
       this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
       this.cUT_MACHINESTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINES);
       if (PreSelectedPart != null) {
@@ -70,7 +71,7 @@ namespace Machine_Priority_Control {
       }
     }
 
-    public string get_name_of_machine(int machid) {
+    private string get_name_of_machine(int machid) {
       string res = string.Empty;
       try {
         res = cUT_MACHINESTableAdapter.GetMachnameByID(machid);
@@ -103,6 +104,34 @@ namespace Machine_Priority_Control {
 
     private void testbutton1_Click(object sender, EventArgs e) {
       System.Windows.Forms.MessageBox.Show(get_priority_values().ToString());
+    }
+
+
+    private void listBox1_MouseClick(object sender, MouseEventArgs e) {
+      int si = listBox1.IndexFromPoint(e.Location);
+      bool selected = si != -1 && listBox1.GetSelected(si);
+      if (selected) {
+        listBox2.SetSelected(si, false);
+        listBox3.SetSelected(si, false);
+      }
+    }
+
+    private void listBox2_MouseClick(object sender, MouseEventArgs e) {
+      int si = listBox2.IndexFromPoint(e.Location);
+      bool selected = si != -1 && listBox2.GetSelected(si);
+      if (selected) {
+        listBox1.SetSelected(si, false);
+        listBox3.SetSelected(si, false);
+      }
+    }
+
+    private void listBox3_MouseClick(object sender, MouseEventArgs e) {
+      int si = listBox3.IndexFromPoint(e.Location);
+      bool selected = si != -1 && listBox3.GetSelected(si);
+      if (selected) {
+        listBox1.SetSelected(si, false);
+        listBox2.SetSelected(si, false);
+      }
     }
   }
 }

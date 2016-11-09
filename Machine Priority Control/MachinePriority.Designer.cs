@@ -158,6 +158,7 @@
       this.listBox1.Size = new System.Drawing.Size(215, 310);
       this.listBox1.TabIndex = 0;
       this.listBox1.ValueMember = "MACHID";
+      this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
       // 
       // cUTMACHINESBindingSource
       // 
@@ -185,6 +186,7 @@
       this.listBox2.Size = new System.Drawing.Size(216, 310);
       this.listBox2.TabIndex = 0;
       this.listBox2.ValueMember = "MACHID";
+      this.listBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseClick);
       // 
       // cUTMACHINESBindingSource1
       // 
@@ -207,6 +209,7 @@
       this.listBox3.Size = new System.Drawing.Size(217, 310);
       this.listBox3.TabIndex = 0;
       this.listBox3.ValueMember = "MACHID";
+      this.listBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseClick);
       // 
       // cUTMACHINESBindingSource2
       // 
@@ -287,6 +290,8 @@
       // 
       this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+      this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+      this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
       this.comboBox1.DataSource = this.cUTPARTSBindingSource;
       this.comboBox1.DisplayMember = "PARTNUM";
       this.comboBox1.FormattingEnabled = true;
@@ -352,6 +357,7 @@
       this.testbutton1.TabIndex = 6;
       this.testbutton1.Text = "testbutton1";
       this.testbutton1.UseVisualStyleBackColor = true;
+      this.testbutton1.Visible = false;
       this.testbutton1.Click += new System.EventHandler(this.testbutton1_Click);
       // 
       // cUT_MACHINESTableAdapter
