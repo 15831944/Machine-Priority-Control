@@ -3,6 +3,9 @@ namespace Machine_Priority_Control {
     
     
     public partial class ENGINEERINGDataSet {
+      partial class CUT_MACHINESDataTable {
+      }
+    
       partial class CUT_MACHINE_PROGRAMSDataTable {
       }
 
@@ -17,7 +20,11 @@ namespace Machine_Priority_Control {
           int prio = 0;
           mach = int.Parse(dt1.Rows[i][@"MACHID"].ToString());
           prio = int.Parse(dt1.Rows[i][@"PRIORITY"].ToString());
-          d.Add(mach, prio);
+          try {
+            d.Add(mach, prio);
+          } catch (System.ArgumentException) {
+            // Key already exists
+          }
         }
         return d;
       }
