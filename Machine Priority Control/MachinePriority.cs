@@ -37,27 +37,39 @@ namespace Machine_Priority_Control {
       Location = Properties.Settings.Default.FormLocation;
     }
 
+    public Dictionary<int, int> get_priority_values() {
+      int p = 0;
+
+      if (int.TryParse(comboBox1.SelectedValue.ToString(), out p)) {
+        return ENGINEERINGDataSet.get_priority_values_inner(p);
+      } else {
+        return new Dictionary<int, int>();
+      }
+    }
+
     private void get_priorities() {
       listBox1.ClearSelected();
       listBox2.ClearSelected();
       listBox3.ClearSelected();
-
-      ENGINEERINGDataSetTableAdapters.CUT_MACHINE_PROGRAMSTableAdapter ta = new ENGINEERINGDataSetTableAdapters.CUT_MACHINE_PROGRAMSTableAdapter();
-      ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dt1 = new ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable();
-      ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dt2 = new ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable();
-      ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dt3 = new ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable();
-      ta.FillByPriority(dt1, 1);
-      ta.FillByPriority(dt2, 2);
-      ta.FillByPriority(dt3, 3);
-
-      foreach (DataRow row in dt1.Rows)
-        listBox1.SelectedValue = (int)row[@"MACHID"];
-
-      foreach (DataRow row in dt2.Rows)
-        listBox2.SelectedValue = (int)row[@"MACHID"];
-
-      foreach (DataRow row in dt3.Rows)
-        listBox3.SelectedValue = (int)row[@"MACHID"];
+      var x = listBox3.Items[0];
+      foreach (KeyValuePair<int, int> item in get_priority_values()) {
+        switch (item.Value) {
+          case 3:
+            x = listBox3.Items[item.Key - 1];
+            listBox3.SelectedItems.Add(x);
+            break;
+          case 2:
+            x = listBox2.Items[item.Key - 1];
+            listBox2.SelectedItems.Add(x);
+            break;
+          case 1:
+            x = listBox1.Items[item.Key - 1];
+            listBox1.SelectedItems.Add(x);
+            break;
+          default:
+            break;
+        }
+      }
     }
 
     private void buttonOK_Click(object sender, EventArgs e) {
@@ -79,6 +91,10 @@ namespace Machine_Priority_Control {
 
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
       get_priorities();
+    }
+
+    private void testbutton1_Click(object sender, EventArgs e) {
+      System.Windows.Forms.MessageBox.Show(get_priority_values().ToString());
     }
   }
 }

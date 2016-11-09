@@ -6184,9 +6184,10 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        PROGID, MACHID, PARTID, PRIORITY\r\nFROM            CUT_MACHINE_PROGR" +
-                "AMS\r\nWHERE        (PRIORITY = @priority)";
+                "AMS\r\nWHERE        (PRIORITY = @priority) AND (PROGID = @progid)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priority", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "PRIORITY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@progid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PROGID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6253,7 +6254,7 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByPriority(ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dataTable, global::System.Nullable<short> priority) {
+        public virtual int FillByPriority(ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dataTable, global::System.Nullable<short> priority, int progid) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((priority.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((short)(priority.Value));
@@ -6261,6 +6262,7 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(progid));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -6272,7 +6274,7 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable GetDataByPriority(global::System.Nullable<short> priority) {
+        public virtual ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable GetDataByPriority(global::System.Nullable<short> priority, int progid) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((priority.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((short)(priority.Value));
@@ -6280,6 +6282,7 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(progid));
             ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dataTable = new ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
