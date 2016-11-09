@@ -47,9 +47,9 @@
       this.label6 = new System.Windows.Forms.Label();
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.textBox2 = new System.Windows.Forms.TextBox();
+      this.testbutton1 = new System.Windows.Forms.Button();
       this.cUT_MACHINESTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_MACHINESTableAdapter();
       this.cUT_PARTSTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_PARTSTableAdapter();
-      this.testbutton1 = new System.Windows.Forms.Button();
       this.tableLayoutPanel1.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
@@ -344,14 +344,6 @@
       this.textBox2.Size = new System.Drawing.Size(94, 15);
       this.textBox2.TabIndex = 5;
       // 
-      // cUT_MACHINESTableAdapter
-      // 
-      this.cUT_MACHINESTableAdapter.ClearBeforeFill = true;
-      // 
-      // cUT_PARTSTableAdapter
-      // 
-      this.cUT_PARTSTableAdapter.ClearBeforeFill = true;
-      // 
       // testbutton1
       // 
       this.testbutton1.Location = new System.Drawing.Point(581, 3);
@@ -361,6 +353,14 @@
       this.testbutton1.Text = "testbutton1";
       this.testbutton1.UseVisualStyleBackColor = true;
       this.testbutton1.Click += new System.EventHandler(this.testbutton1_Click);
+      // 
+      // cUT_MACHINESTableAdapter
+      // 
+      this.cUT_MACHINESTableAdapter.ClearBeforeFill = true;
+      // 
+      // cUT_PARTSTableAdapter
+      // 
+      this.cUT_PARTSTableAdapter.ClearBeforeFill = true;
       // 
       // MachinePriority
       // 

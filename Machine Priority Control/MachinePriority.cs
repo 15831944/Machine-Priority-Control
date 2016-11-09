@@ -8,10 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//using Autodesk.AutoCAD.Runtime;
-//using Autodesk.AutoCAD.DatabaseServices;
-//using Autodesk.AutoCAD.Geometry;
-
 namespace Machine_Priority_Control {
   public partial class MachinePriority : Form {
     public MachinePriority() {
@@ -51,25 +47,37 @@ namespace Machine_Priority_Control {
       listBox1.ClearSelected();
       listBox2.ClearSelected();
       listBox3.ClearSelected();
-      var x = listBox3.Items[0];
       foreach (KeyValuePair<int, int> item in get_priority_values()) {
         switch (item.Value) {
           case 3:
-            x = listBox3.Items[item.Key - 1];
-            listBox3.SelectedItems.Add(x);
+            listBox3.SetSelected(
+              listBox3.FindString(get_name_of_machine(item.Key)),
+              true);
             break;
           case 2:
-            x = listBox2.Items[item.Key - 1];
-            listBox2.SelectedItems.Add(x);
+            listBox2.SetSelected(
+              listBox2.FindString(get_name_of_machine(item.Key)),
+              true);
             break;
           case 1:
-            x = listBox1.Items[item.Key - 1];
-            listBox1.SelectedItems.Add(x);
+            listBox1.SetSelected(
+              listBox1.FindString(get_name_of_machine(item.Key)),
+              true);
             break;
           default:
             break;
         }
       }
+    }
+
+    public string get_name_of_machine(int machid) {
+      string res = string.Empty;
+      try {
+        res = cUT_MACHINESTableAdapter.GetMachnameByID(machid);
+      } catch (NullReferenceException) {
+        //
+      }
+      return res;
     }
 
     private void buttonOK_Click(object sender, EventArgs e) {
