@@ -8,18 +8,18 @@
   <Shapes>
     <Shape ID="DesignTable:CUT_CUTLIST_PARTS" ZOrder="9" X="8" Y="14" Height="75" Width="265" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="197" SplitterPosition="24" />
     <Shape ID="DesignTable:CUT_CUTLISTS" ZOrder="8" X="284" Y="15" Height="54" Width="229" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="254" SplitterPosition="24" />
-    <Shape ID="DesignTable:CUT_MACHINE_PROGRAMS" ZOrder="7" X="530" Y="17" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="102" />
-    <Shape ID="DesignTable:CUT_MACHINES" ZOrder="6" X="594" Y="289" Height="210" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="24" SplitterPosition="140" />
-    <Shape ID="DesignTable:CUT_PART_TYPES" ZOrder="4" X="12" Y="118" Height="54" Width="246" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="83" SplitterPosition="24" />
-    <Shape ID="DesignTable:CUT_PARTS" ZOrder="5" X="942" Y="74" Height="305" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="24" SplitterPosition="254" />
-    <Shape ID="DesignTable:CUT_STATES" ZOrder="3" X="293" Y="112" Height="134" Width="217" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:CUT_MACHINE_PROGRAMS" ZOrder="1" X="530" Y="17" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="102" />
+    <Shape ID="DesignTable:CUT_MACHINES" ZOrder="7" X="594" Y="289" Height="229" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="24" SplitterPosition="140" />
+    <Shape ID="DesignTable:CUT_PART_TYPES" ZOrder="5" X="12" Y="118" Height="54" Width="246" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="83" SplitterPosition="24" />
+    <Shape ID="DesignTable:CUT_PARTS" ZOrder="6" X="942" Y="74" Height="305" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="24" SplitterPosition="254" />
+    <Shape ID="DesignTable:CUT_STATES" ZOrder="4" X="293" Y="112" Height="134" Width="217" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:CUT_MACHINE_PROGRAMS_CUT_MACHINES" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:CUT_MACHINE_PROGRAMS_CUT_MACHINES" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>553</X>
-          <Y>227</Y>
+          <Y>246</Y>
         </Point>
         <Point>
           <X>553</X>
@@ -31,7 +31,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:CUT_PARTS_CUT_MACHINE_PROGRAMS" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:CUT_PARTS_CUT_MACHINE_PROGRAMS" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>942</X>

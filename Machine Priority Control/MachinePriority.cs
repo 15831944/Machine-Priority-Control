@@ -20,7 +20,10 @@ namespace Machine_Priority_Control {
     }
 
     private void Form1_Load(object sender, EventArgs e) {
+#if DEBUG
       this.Show();
+      //this.testbutton1.Visible = true;
+#endif
       this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
       this.cUT_MACHINESTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINES);
       if (PreSelectedPart != null) {
@@ -81,8 +84,35 @@ namespace Machine_Priority_Control {
       return res;
     }
 
+    public Dictionary<int, int> get_listbox_states() {
+      Dictionary<int, int> d = new Dictionary<int, int>();
+      for (int i = 0; i < listBox1.Items.Count; i++) {
+        DataRowView item = (DataRowView)listBox1.Items[i];
+        try {
+          if (!listBox1.GetSelected(i) &&
+              !listBox2.GetSelected(i) &&
+              !listBox3.GetSelected(i)) {
+                d.Add((int)item[0], 0);
+          }
+
+          if (listBox1.GetSelected(i))
+            d.Add((int)item[0], 1);
+
+          if (listBox2.GetSelected(i))
+            d.Add((int)item[0], 2);
+
+          if (listBox3.GetSelected(i))
+            d.Add((int)item[0], 3);
+        } catch (ArgumentException) {
+          // Key already exists
+        }
+      }
+      return d;
+    }
+
     private void buttonOK_Click(object sender, EventArgs e) {
-      Console.WriteLine(@"We don't do anything yet.");
+      DataRowView comboboxitem = (DataRowView)comboBox1.SelectedItem;
+      ENGINEERINGDataSet.update_priority_values((int)comboboxitem[0], get_listbox_states());
       Close();
     }
 
@@ -103,7 +133,13 @@ namespace Machine_Priority_Control {
     }
 
     private void testbutton1_Click(object sender, EventArgs e) {
-      System.Windows.Forms.MessageBox.Show(get_priority_values().ToString());
+      string message = string.Empty;
+      Dictionary<int,int> d = get_listbox_states();
+      message = d.ToString() + "\n";
+      foreach (KeyValuePair<int,int> item in d) {
+        message += string.Format(@"Key: {0}, Val: {1}\n", item.Key, item.Value);
+      }
+      System.Windows.Forms.MessageBox.Show(message);
     }
 
 
