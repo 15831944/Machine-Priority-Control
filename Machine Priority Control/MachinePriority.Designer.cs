@@ -30,36 +30,36 @@
       this.buttonCancel = new System.Windows.Forms.Button();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
       this.listBox3 = new System.Windows.Forms.ListBox();
+      this.cUTMACHINESBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+      this.eNGINEERINGDataSet = new Machine_Priority_Control.ENGINEERINGDataSet();
       this.label3 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.listBox2 = new System.Windows.Forms.ListBox();
+      this.cUTMACHINESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
       this.listBox1 = new System.Windows.Forms.ListBox();
+      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.label7 = new System.Windows.Forms.Label();
       this.listBox4 = new System.Windows.Forms.ListBox();
       this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
       this.label4 = new System.Windows.Forms.Label();
       this.comboBox1 = new System.Windows.Forms.ComboBox();
+      this.cUTPARTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.label5 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.textBox2 = new System.Windows.Forms.TextBox();
       this.testbutton1 = new System.Windows.Forms.Button();
-      this.cUTMACHINESBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-      this.eNGINEERINGDataSet = new Machine_Priority_Control.ENGINEERINGDataSet();
-      this.cUTMACHINESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.cUTPARTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.cUT_MACHINESTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_MACHINESTableAdapter();
       this.cUT_PARTSTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_PARTSTableAdapter();
       this.tableLayoutPanel1.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
-      this.tableLayoutPanel4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.eNGINEERINGDataSet)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).BeginInit();
+      this.tableLayoutPanel4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTPARTSBindingSource)).BeginInit();
       this.SuspendLayout();
       // 
@@ -97,7 +97,7 @@
       this.tableLayoutPanel2.RowCount = 1;
       this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tableLayoutPanel2.Size = new System.Drawing.Size(602, 29);
-      this.tableLayoutPanel2.TabIndex = 0;
+      this.tableLayoutPanel2.TabIndex = 1;
       // 
       // buttonOK
       // 
@@ -105,7 +105,7 @@
       this.buttonOK.Location = new System.Drawing.Point(304, 3);
       this.buttonOK.Name = "buttonOK";
       this.buttonOK.Size = new System.Drawing.Size(295, 23);
-      this.buttonOK.TabIndex = 0;
+      this.buttonOK.TabIndex = 15;
       this.buttonOK.Text = "OK";
       this.buttonOK.UseVisualStyleBackColor = true;
       this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -116,7 +116,7 @@
       this.buttonCancel.Location = new System.Drawing.Point(3, 3);
       this.buttonCancel.Name = "buttonCancel";
       this.buttonCancel.Size = new System.Drawing.Size(295, 23);
-      this.buttonCancel.TabIndex = 1;
+      this.buttonCancel.TabIndex = 14;
       this.buttonCancel.Text = "Cancel";
       this.buttonCancel.UseVisualStyleBackColor = true;
       this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -145,7 +145,7 @@
       this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
       this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel3.Size = new System.Drawing.Size(602, 313);
-      this.tableLayoutPanel3.TabIndex = 1;
+      this.tableLayoutPanel3.TabIndex = 0;
       // 
       // listBox3
       // 
@@ -161,9 +161,19 @@
       this.listBox3.Name = "listBox3";
       this.listBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
       this.listBox3.Size = new System.Drawing.Size(146, 259);
-      this.listBox3.TabIndex = 0;
+      this.listBox3.TabIndex = 13;
       this.listBox3.ValueMember = "MACHID";
       this.listBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseClick);
+      // 
+      // cUTMACHINESBindingSource2
+      // 
+      this.cUTMACHINESBindingSource2.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource2.DataSource = this.eNGINEERINGDataSet;
+      // 
+      // eNGINEERINGDataSet
+      // 
+      this.eNGINEERINGDataSet.DataSetName = "ENGINEERINGDataSet";
+      this.eNGINEERINGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       // 
       // label3
       // 
@@ -173,7 +183,7 @@
       this.label3.Location = new System.Drawing.Point(453, 0);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(146, 35);
-      this.label3.TabIndex = 3;
+      this.label3.TabIndex = 12;
       this.label3.Text = "3";
       this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
@@ -185,7 +195,7 @@
       this.label2.Location = new System.Drawing.Point(303, 0);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(144, 35);
-      this.label2.TabIndex = 2;
+      this.label2.TabIndex = 10;
       this.label2.Text = "2";
       this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
@@ -197,7 +207,7 @@
       this.label1.Location = new System.Drawing.Point(153, 0);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(144, 35);
-      this.label1.TabIndex = 1;
+      this.label1.TabIndex = 8;
       this.label1.Text = "1";
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
@@ -215,9 +225,14 @@
       this.listBox2.Name = "listBox2";
       this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
       this.listBox2.Size = new System.Drawing.Size(144, 259);
-      this.listBox2.TabIndex = 0;
+      this.listBox2.TabIndex = 11;
       this.listBox2.ValueMember = "MACHID";
       this.listBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseClick);
+      // 
+      // cUTMACHINESBindingSource1
+      // 
+      this.cUTMACHINESBindingSource1.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource1.DataSource = this.eNGINEERINGDataSet;
       // 
       // listBox1
       // 
@@ -233,9 +248,14 @@
       this.listBox1.Name = "listBox1";
       this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
       this.listBox1.Size = new System.Drawing.Size(144, 259);
-      this.listBox1.TabIndex = 0;
+      this.listBox1.TabIndex = 9;
       this.listBox1.ValueMember = "MACHID";
       this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+      // 
+      // cUTMACHINESBindingSource
+      // 
+      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource.DataSource = this.eNGINEERINGDataSet;
       // 
       // label7
       // 
@@ -244,7 +264,7 @@
       this.label7.Location = new System.Drawing.Point(3, 0);
       this.label7.Name = "label7";
       this.label7.Size = new System.Drawing.Size(144, 35);
-      this.label7.TabIndex = 4;
+      this.label7.TabIndex = 6;
       this.label7.Text = "Common Parts";
       this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
@@ -258,7 +278,7 @@
       this.listBox4.Location = new System.Drawing.Point(3, 38);
       this.listBox4.Name = "listBox4";
       this.listBox4.Size = new System.Drawing.Size(144, 264);
-      this.listBox4.TabIndex = 5;
+      this.listBox4.TabIndex = 7;
       this.listBox4.ValueMember = "PARTID";
       this.listBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox4_MouseClick);
       this.listBox4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
@@ -291,11 +311,13 @@
       // label4
       // 
       this.label4.AutoSize = true;
+      this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label4.Location = new System.Drawing.Point(3, 0);
       this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(30, 13);
+      this.label4.Size = new System.Drawing.Size(44, 32);
       this.label4.TabIndex = 0;
       this.label4.Text = "Part:";
+      this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // comboBox1
       // 
@@ -313,23 +335,32 @@
       this.comboBox1.ValueMember = "PARTID";
       this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
       // 
+      // cUTPARTSBindingSource
+      // 
+      this.cUTPARTSBindingSource.DataMember = "CUT_PARTS";
+      this.cUTPARTSBindingSource.DataSource = this.eNGINEERINGDataSet;
+      // 
       // label5
       // 
       this.label5.AutoSize = true;
+      this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label5.Location = new System.Drawing.Point(281, 0);
       this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(38, 13);
+      this.label5.Size = new System.Drawing.Size(44, 32);
       this.label5.TabIndex = 2;
       this.label5.Text = "CNC1:";
+      this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // label6
       // 
       this.label6.AutoSize = true;
+      this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label6.Location = new System.Drawing.Point(431, 0);
       this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(38, 13);
-      this.label6.TabIndex = 3;
+      this.label6.Size = new System.Drawing.Size(44, 32);
+      this.label6.TabIndex = 4;
       this.label6.Text = "CNC2:";
+      this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // textBox1
       // 
@@ -341,7 +372,7 @@
       this.textBox1.Location = new System.Drawing.Point(331, 3);
       this.textBox1.Name = "textBox1";
       this.textBox1.Size = new System.Drawing.Size(94, 15);
-      this.textBox1.TabIndex = 4;
+      this.textBox1.TabIndex = 3;
       // 
       // textBox2
       // 
@@ -360,36 +391,11 @@
       this.testbutton1.Location = new System.Drawing.Point(581, 3);
       this.testbutton1.Name = "testbutton1";
       this.testbutton1.Size = new System.Drawing.Size(14, 23);
-      this.testbutton1.TabIndex = 6;
+      this.testbutton1.TabIndex = 16;
       this.testbutton1.Text = "testbutton1";
       this.testbutton1.UseVisualStyleBackColor = true;
       this.testbutton1.Visible = false;
       this.testbutton1.Click += new System.EventHandler(this.testbutton1_Click);
-      // 
-      // cUTMACHINESBindingSource2
-      // 
-      this.cUTMACHINESBindingSource2.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource2.DataSource = this.eNGINEERINGDataSet;
-      // 
-      // eNGINEERINGDataSet
-      // 
-      this.eNGINEERINGDataSet.DataSetName = "ENGINEERINGDataSet";
-      this.eNGINEERINGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-      // 
-      // cUTMACHINESBindingSource1
-      // 
-      this.cUTMACHINESBindingSource1.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource1.DataSource = this.eNGINEERINGDataSet;
-      // 
-      // cUTMACHINESBindingSource
-      // 
-      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource.DataSource = this.eNGINEERINGDataSet;
-      // 
-      // cUTPARTSBindingSource
-      // 
-      this.cUTPARTSBindingSource.DataMember = "CUT_PARTS";
-      this.cUTPARTSBindingSource.DataSource = this.eNGINEERINGDataSet;
       // 
       // cUT_MACHINESTableAdapter
       // 
@@ -414,12 +420,12 @@
       this.tableLayoutPanel2.ResumeLayout(false);
       this.tableLayoutPanel3.ResumeLayout(false);
       this.tableLayoutPanel3.PerformLayout();
-      this.tableLayoutPanel4.ResumeLayout(false);
-      this.tableLayoutPanel4.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.eNGINEERINGDataSet)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();
+      this.tableLayoutPanel4.ResumeLayout(false);
+      this.tableLayoutPanel4.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTPARTSBindingSource)).EndInit();
       this.ResumeLayout(false);
 
