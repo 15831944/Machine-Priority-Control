@@ -39,6 +39,7 @@ namespace Machine_Priority_Control {
       get_priorities();
       Size = Properties.Settings.Default.FormSize;
       Location = Properties.Settings.Default.FormLocation;
+      listBox4.Focus();
     }
 
     public Dictionary<int, int> get_priority_values() {
@@ -196,8 +197,10 @@ namespace Machine_Priority_Control {
 
     private void listBox4_MouseClick(object sender, MouseEventArgs e) {
       int selected_idx = listBox4.IndexFromPoint(e.Location);
-      string partnum = (string)(listBox4.Items[selected_idx] as DataRowView)[@"PARTNUM"];
-      comboBox1.SelectedIndex = comboBox1.FindString(partnum);
+      if (selected_idx > -1) {
+        string partnum = (string)(listBox4.Items[selected_idx] as DataRowView)[@"PARTNUM"];
+        comboBox1.SelectedIndex = comboBox1.FindString(partnum);
+      }
     }
 
     private void listBox4_SelectedIndexChanged(object sender, EventArgs e) {
