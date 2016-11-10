@@ -60,9 +60,9 @@
     <Compile Include="TestDataSource.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Machine Priority Control\Machine Priority Control.csproj">
+    <ProjectReference Include="..\Machine Priority Control\Machine.Priority.Control.csproj">
       <Project>{c2d0d39f-89e1-48fa-bf05-a3e276a652ac}</Project>
-      <Name>Machine Priority Control</Name>
+      <Name>Machine.Priority.Control</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -11,9 +11,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Machine Priority Control")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("Shfensoft")]
 [assembly: AssemblyProduct("Machine Priority Control")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
+[assembly: AssemblyCopyright("Copyright © Shfensoft 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
