@@ -27,7 +27,11 @@ namespace Machine_Priority_Control {
       this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
       this.cUT_MACHINESTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINES);
       if (PreSelectedPart != null) {
-        comboBox1.SelectedIndex = comboBox1.FindString(PreSelectedPart);
+        try {
+          comboBox1.SelectedIndex = comboBox1.FindString(PreSelectedPart);
+        } catch (Exception) {
+          //
+        }
       }
       comboBox1.SelectionStart = 0;
       comboBox1.SelectionLength = 0;
