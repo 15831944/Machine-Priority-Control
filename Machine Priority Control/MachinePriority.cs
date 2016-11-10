@@ -22,7 +22,7 @@ namespace Machine_Priority_Control {
     private void Form1_Load(object sender, EventArgs e) {
 #if DEBUG
       this.Show();
-      //this.testbutton1.Visible = true;
+      this.testbutton1.Visible = true;
 #endif
       this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
       this.cUT_MACHINESTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINES);
@@ -130,6 +130,26 @@ namespace Machine_Priority_Control {
 
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
       get_priorities();
+      System.Text.RegularExpressions.MatchCollection cnc1;
+      System.Text.RegularExpressions.MatchCollection cnc2;
+      System.Text.RegularExpressions.Regex rx = new System.Text.RegularExpressions.Regex(@"^([0-9]+)");
+      cnc1 = rx.Matches((comboBox1.SelectedItem as DataRowView)[6].ToString());
+      cnc2 = rx.Matches((comboBox1.SelectedItem as DataRowView)[7].ToString());
+      string cnc1string = string.Empty;
+      string cnc2string = string.Empty;
+      if (cnc1.Count > 0) {
+        cnc1string = cnc1[0].Value + '%';
+      }
+
+      if (cnc2.Count > 0) {
+        cnc2string = cnc2[0].Value + '%';
+      }
+      //ENGINEERINGDataSet.CUT_PARTSDataTable common_parts =
+      //  new ENGINEERINGDataSet.CUT_PARTSDataTable();
+      //cUT_PARTSTableAdapter.FillByCNCProg(common_parts, cnc1.Value + '%', cnc2.Value + '%');
+      listBox4.DisplayMember = @"PARTNUM";
+      listBox4.ValueMember = @"PARTID";
+      listBox4.DataSource = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
     }
 
     private void testbutton1_Click(object sender, EventArgs e) {

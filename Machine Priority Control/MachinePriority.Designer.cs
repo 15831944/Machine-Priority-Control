@@ -29,16 +29,18 @@
       this.buttonOK = new System.Windows.Forms.Button();
       this.buttonCancel = new System.Windows.Forms.Button();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-      this.listBox1 = new System.Windows.Forms.ListBox();
-      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.eNGINEERINGDataSet = new Machine_Priority_Control.ENGINEERINGDataSet();
-      this.listBox2 = new System.Windows.Forms.ListBox();
-      this.cUTMACHINESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
       this.listBox3 = new System.Windows.Forms.ListBox();
       this.cUTMACHINESBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-      this.label1 = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
+      this.eNGINEERINGDataSet = new Machine_Priority_Control.ENGINEERINGDataSet();
       this.label3 = new System.Windows.Forms.Label();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label1 = new System.Windows.Forms.Label();
+      this.listBox2 = new System.Windows.Forms.ListBox();
+      this.cUTMACHINESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+      this.listBox1 = new System.Windows.Forms.ListBox();
+      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.label7 = new System.Windows.Forms.Label();
+      this.listBox4 = new System.Windows.Forms.ListBox();
       this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
       this.label4 = new System.Windows.Forms.Label();
       this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -53,10 +55,10 @@
       this.tableLayoutPanel1.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.eNGINEERINGDataSet)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource1)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).BeginInit();
       this.tableLayoutPanel4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTPARTSBindingSource)).BeginInit();
       this.SuspendLayout();
@@ -77,7 +79,7 @@
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(672, 439);
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(608, 392);
       this.tableLayoutPanel1.TabIndex = 0;
       // 
       // tableLayoutPanel2
@@ -90,19 +92,19 @@
       this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tableLayoutPanel2.Controls.Add(this.buttonOK, 1, 0);
       this.tableLayoutPanel2.Controls.Add(this.buttonCancel, 0, 0);
-      this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 407);
+      this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 360);
       this.tableLayoutPanel2.Name = "tableLayoutPanel2";
       this.tableLayoutPanel2.RowCount = 1;
       this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel2.Size = new System.Drawing.Size(666, 29);
+      this.tableLayoutPanel2.Size = new System.Drawing.Size(602, 29);
       this.tableLayoutPanel2.TabIndex = 0;
       // 
       // buttonOK
       // 
       this.buttonOK.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.buttonOK.Location = new System.Drawing.Point(336, 3);
+      this.buttonOK.Location = new System.Drawing.Point(304, 3);
       this.buttonOK.Name = "buttonOK";
-      this.buttonOK.Size = new System.Drawing.Size(327, 23);
+      this.buttonOK.Size = new System.Drawing.Size(295, 23);
       this.buttonOK.TabIndex = 0;
       this.buttonOK.Text = "OK";
       this.buttonOK.UseVisualStyleBackColor = true;
@@ -113,7 +115,7 @@
       this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonCancel.Location = new System.Drawing.Point(3, 3);
       this.buttonCancel.Name = "buttonCancel";
-      this.buttonCancel.Size = new System.Drawing.Size(327, 23);
+      this.buttonCancel.Size = new System.Drawing.Size(295, 23);
       this.buttonCancel.TabIndex = 1;
       this.buttonCancel.Text = "Cancel";
       this.buttonCancel.UseVisualStyleBackColor = true;
@@ -124,74 +126,26 @@
       this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.tableLayoutPanel3.ColumnCount = 3;
-      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-      this.tableLayoutPanel3.Controls.Add(this.listBox1, 0, 1);
-      this.tableLayoutPanel3.Controls.Add(this.listBox2, 1, 1);
-      this.tableLayoutPanel3.Controls.Add(this.listBox3, 2, 1);
-      this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
-      this.tableLayoutPanel3.Controls.Add(this.label2, 1, 0);
-      this.tableLayoutPanel3.Controls.Add(this.label3, 2, 0);
+      this.tableLayoutPanel3.ColumnCount = 4;
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.tableLayoutPanel3.Controls.Add(this.listBox3, 3, 1);
+      this.tableLayoutPanel3.Controls.Add(this.label3, 3, 0);
+      this.tableLayoutPanel3.Controls.Add(this.label2, 2, 0);
+      this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
+      this.tableLayoutPanel3.Controls.Add(this.listBox2, 2, 1);
+      this.tableLayoutPanel3.Controls.Add(this.listBox1, 1, 1);
+      this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
+      this.tableLayoutPanel3.Controls.Add(this.listBox4, 0, 1);
       this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 41);
       this.tableLayoutPanel3.Name = "tableLayoutPanel3";
       this.tableLayoutPanel3.RowCount = 2;
       this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
       this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanel3.Size = new System.Drawing.Size(666, 360);
+      this.tableLayoutPanel3.Size = new System.Drawing.Size(602, 313);
       this.tableLayoutPanel3.TabIndex = 1;
-      // 
-      // listBox1
-      // 
-      this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.listBox1.DataSource = this.cUTMACHINESBindingSource;
-      this.listBox1.DisplayMember = "MACHNAME";
-      this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.listBox1.FormattingEnabled = true;
-      this.listBox1.ItemHeight = 17;
-      this.listBox1.Location = new System.Drawing.Point(3, 38);
-      this.listBox1.Name = "listBox1";
-      this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-      this.listBox1.Size = new System.Drawing.Size(215, 310);
-      this.listBox1.TabIndex = 0;
-      this.listBox1.ValueMember = "MACHID";
-      this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
-      // 
-      // cUTMACHINESBindingSource
-      // 
-      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource.DataSource = this.eNGINEERINGDataSet;
-      // 
-      // eNGINEERINGDataSet
-      // 
-      this.eNGINEERINGDataSet.DataSetName = "ENGINEERINGDataSet";
-      this.eNGINEERINGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-      // 
-      // listBox2
-      // 
-      this.listBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.listBox2.DataSource = this.cUTMACHINESBindingSource1;
-      this.listBox2.DisplayMember = "MACHNAME";
-      this.listBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.listBox2.FormattingEnabled = true;
-      this.listBox2.ItemHeight = 17;
-      this.listBox2.Location = new System.Drawing.Point(224, 38);
-      this.listBox2.Name = "listBox2";
-      this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-      this.listBox2.Size = new System.Drawing.Size(216, 310);
-      this.listBox2.TabIndex = 0;
-      this.listBox2.ValueMember = "MACHID";
-      this.listBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseClick);
-      // 
-      // cUTMACHINESBindingSource1
-      // 
-      this.cUTMACHINESBindingSource1.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource1.DataSource = this.eNGINEERINGDataSet;
       // 
       // listBox3
       // 
@@ -203,10 +157,10 @@
       this.listBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.listBox3.FormattingEnabled = true;
       this.listBox3.ItemHeight = 17;
-      this.listBox3.Location = new System.Drawing.Point(446, 38);
+      this.listBox3.Location = new System.Drawing.Point(453, 38);
       this.listBox3.Name = "listBox3";
       this.listBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-      this.listBox3.Size = new System.Drawing.Size(217, 310);
+      this.listBox3.Size = new System.Drawing.Size(146, 259);
       this.listBox3.TabIndex = 0;
       this.listBox3.ValueMember = "MACHID";
       this.listBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseClick);
@@ -216,41 +170,114 @@
       this.cUTMACHINESBindingSource2.DataMember = "CUT_MACHINES";
       this.cUTMACHINESBindingSource2.DataSource = this.eNGINEERINGDataSet;
       // 
-      // label1
+      // eNGINEERINGDataSet
       // 
-      this.label1.AutoSize = true;
-      this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label1.Location = new System.Drawing.Point(3, 0);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(215, 35);
-      this.label1.TabIndex = 1;
-      this.label1.Text = "1";
-      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label2.Location = new System.Drawing.Point(224, 0);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(216, 35);
-      this.label2.TabIndex = 2;
-      this.label2.Text = "2";
-      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.eNGINEERINGDataSet.DataSetName = "ENGINEERINGDataSet";
+      this.eNGINEERINGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       // 
       // label3
       // 
       this.label3.AutoSize = true;
       this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label3.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label3.Location = new System.Drawing.Point(446, 0);
+      this.label3.Location = new System.Drawing.Point(453, 0);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(217, 35);
+      this.label3.Size = new System.Drawing.Size(146, 35);
       this.label3.TabIndex = 3;
       this.label3.Text = "3";
       this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label2.Location = new System.Drawing.Point(303, 0);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(144, 35);
+      this.label2.TabIndex = 2;
+      this.label2.Text = "2";
+      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label1.Location = new System.Drawing.Point(153, 0);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(144, 35);
+      this.label1.TabIndex = 1;
+      this.label1.Text = "1";
+      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // listBox2
+      // 
+      this.listBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.listBox2.DataSource = this.cUTMACHINESBindingSource1;
+      this.listBox2.DisplayMember = "MACHNAME";
+      this.listBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.listBox2.FormattingEnabled = true;
+      this.listBox2.ItemHeight = 17;
+      this.listBox2.Location = new System.Drawing.Point(303, 38);
+      this.listBox2.Name = "listBox2";
+      this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+      this.listBox2.Size = new System.Drawing.Size(144, 259);
+      this.listBox2.TabIndex = 0;
+      this.listBox2.ValueMember = "MACHID";
+      this.listBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseClick);
+      // 
+      // cUTMACHINESBindingSource1
+      // 
+      this.cUTMACHINESBindingSource1.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource1.DataSource = this.eNGINEERINGDataSet;
+      // 
+      // listBox1
+      // 
+      this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.listBox1.DataSource = this.cUTMACHINESBindingSource;
+      this.listBox1.DisplayMember = "MACHNAME";
+      this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.listBox1.FormattingEnabled = true;
+      this.listBox1.ItemHeight = 17;
+      this.listBox1.Location = new System.Drawing.Point(153, 38);
+      this.listBox1.Name = "listBox1";
+      this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+      this.listBox1.Size = new System.Drawing.Size(144, 259);
+      this.listBox1.TabIndex = 0;
+      this.listBox1.ValueMember = "MACHID";
+      this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+      // 
+      // cUTMACHINESBindingSource
+      // 
+      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource.DataSource = this.eNGINEERINGDataSet;
+      // 
+      // label7
+      // 
+      this.label7.AutoSize = true;
+      this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.label7.Location = new System.Drawing.Point(3, 0);
+      this.label7.Name = "label7";
+      this.label7.Size = new System.Drawing.Size(144, 35);
+      this.label7.TabIndex = 4;
+      this.label7.Text = "Common Parts";
+      this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // listBox4
+      // 
+      this.listBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.listBox4.FormattingEnabled = true;
+      this.listBox4.Location = new System.Drawing.Point(3, 38);
+      this.listBox4.Name = "listBox4";
+      this.listBox4.Size = new System.Drawing.Size(144, 264);
+      this.listBox4.TabIndex = 5;
       // 
       // tableLayoutPanel4
       // 
@@ -372,7 +399,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(696, 463);
+      this.ClientSize = new System.Drawing.Size(632, 416);
       this.Controls.Add(this.tableLayoutPanel1);
       this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Name = "MachinePriority";
@@ -383,10 +410,10 @@
       this.tableLayoutPanel2.ResumeLayout(false);
       this.tableLayoutPanel3.ResumeLayout(false);
       this.tableLayoutPanel3.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.eNGINEERINGDataSet)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource1)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();
       this.tableLayoutPanel4.ResumeLayout(false);
       this.tableLayoutPanel4.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTPARTSBindingSource)).EndInit();
@@ -422,5 +449,7 @@
     private System.Windows.Forms.TextBox textBox1;
     private System.Windows.Forms.TextBox textBox2;
     private System.Windows.Forms.Button testbutton1;
+    private System.Windows.Forms.Label label7;
+    private System.Windows.Forms.ListBox listBox4;
   }
 }
