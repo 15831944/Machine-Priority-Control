@@ -32,19 +32,30 @@ namespace Machine_Priority_Control {
     [CommandMethod("MachinePriority")]
     public void MachinePriority() {
       Document doc = Application.DocumentManager.MdiActiveDocument;
-      Editor ed = doc.Editor;
-      ObjectId[] o = select_entites(ed);
-      System.Collections.Generic.List<ObjectId> ids = new System.Collections.Generic.List<ObjectId>();
-      using(Transaction tr = doc.TransactionManager.StartTransaction()) {
-        foreach (var id in o) {
-          Entity ent = (Entity)tr.GetObject(id, OpenMode.ForRead);
-          ids.Add(id);
-          ent.Highlight();
-        }
-        tr.Commit();
-	    }
-      MachinePriority mp = new MachinePriority(ids[0].ToString());
+      System.IO.FileInfo fi = new System.IO.FileInfo(doc.Name);
+      MachinePriority mp = new MachinePriority(resolve_to_part(fi));
       mp.ShowDialog();
+    }
+
+    private static string resolve_to_part(System.IO.FileInfo fi) {
+      string res = string.Empty;
+      System.Text.RegularExpressions.MatchCollection mc;
+      System.Text.RegularExpressions.Regex rx = new System.Text.RegularExpressions.Regex(@"([0-9]+)");
+      mc = rx.Matches(fi.Name);
+      switch (mc.Count) {
+        case 3:
+          res = mc[1].Value;
+          break;
+        case 2:
+          res = mc[0].Value;
+          break;
+        case 1:
+          res = mc[0].Value;
+          break;
+        default:
+          break;
+      }
+      return ENGINEERINGDataSet.get_part_by_prog(res);
     }
 
     private static ObjectId[] select_entites(Editor ed) {
