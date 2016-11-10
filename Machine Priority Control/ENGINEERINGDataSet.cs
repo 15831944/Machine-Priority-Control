@@ -3,17 +3,30 @@ namespace Machine_Priority_Control {
     
     
     public partial class ENGINEERINGDataSet {
-      partial class CUT_MACHINESDataTable {
+      partial class CUT_PARTSDataTable {
       }
     
       partial class CUT_MACHINE_PROGRAMSDataTable {
+      }
+
+      public static string get_part_by_prog(string prog) {
+        string res = string.Empty;
+        ENGINEERINGDataSetTableAdapters.CUT_PARTSTableAdapter ta =
+          new ENGINEERINGDataSetTableAdapters.CUT_PARTSTableAdapter();
+        ENGINEERINGDataSet.CUT_PARTSDataTable dt = new CUT_PARTSDataTable();
+        ta.FillByCNCProg(dt, prog + '%', prog + '%');
+        if (dt.Count > 0) {
+          res = (string)dt[0][@"PARTNUM"];
+        }
+        return res;
       }
 
       public static Dictionary<int, int> get_priority_values_inner(int partid) {
         Dictionary<int, int> d = new Dictionary<int, int>();
         ENGINEERINGDataSetTableAdapters.CUT_MACHINE_PROGRAMSTableAdapter ta = 
           new ENGINEERINGDataSetTableAdapters.CUT_MACHINE_PROGRAMSTableAdapter();
-        ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dt1 = new ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable();
+        ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable dt1 =
+          new ENGINEERINGDataSet.CUT_MACHINE_PROGRAMSDataTable();
         ta.FillBy(dt1, partid);
         for (int i = 0; i < dt1.Rows.Count; i++) {
           int mach = 0;
