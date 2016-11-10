@@ -30,36 +30,36 @@
       this.buttonCancel = new System.Windows.Forms.Button();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
       this.listBox3 = new System.Windows.Forms.ListBox();
-      this.cUTMACHINESBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-      this.eNGINEERINGDataSet = new Machine_Priority_Control.ENGINEERINGDataSet();
       this.label3 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.listBox2 = new System.Windows.Forms.ListBox();
-      this.cUTMACHINESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
       this.listBox1 = new System.Windows.Forms.ListBox();
-      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.label7 = new System.Windows.Forms.Label();
       this.listBox4 = new System.Windows.Forms.ListBox();
       this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
       this.label4 = new System.Windows.Forms.Label();
       this.comboBox1 = new System.Windows.Forms.ComboBox();
-      this.cUTPARTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.label5 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.textBox2 = new System.Windows.Forms.TextBox();
       this.testbutton1 = new System.Windows.Forms.Button();
+      this.cUTMACHINESBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+      this.eNGINEERINGDataSet = new Machine_Priority_Control.ENGINEERINGDataSet();
+      this.cUTMACHINESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.cUTPARTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.cUT_MACHINESTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_MACHINESTableAdapter();
       this.cUT_PARTSTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_PARTSTableAdapter();
       this.tableLayoutPanel1.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
+      this.tableLayoutPanel4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.eNGINEERINGDataSet)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).BeginInit();
-      this.tableLayoutPanel4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTPARTSBindingSource)).BeginInit();
       this.SuspendLayout();
       // 
@@ -165,16 +165,6 @@
       this.listBox3.ValueMember = "MACHID";
       this.listBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseClick);
       // 
-      // cUTMACHINESBindingSource2
-      // 
-      this.cUTMACHINESBindingSource2.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource2.DataSource = this.eNGINEERINGDataSet;
-      // 
-      // eNGINEERINGDataSet
-      // 
-      this.eNGINEERINGDataSet.DataSetName = "ENGINEERINGDataSet";
-      this.eNGINEERINGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-      // 
       // label3
       // 
       this.label3.AutoSize = true;
@@ -229,11 +219,6 @@
       this.listBox2.ValueMember = "MACHID";
       this.listBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseClick);
       // 
-      // cUTMACHINESBindingSource1
-      // 
-      this.cUTMACHINESBindingSource1.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource1.DataSource = this.eNGINEERINGDataSet;
-      // 
       // listBox1
       // 
       this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -252,11 +237,6 @@
       this.listBox1.ValueMember = "MACHID";
       this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
       // 
-      // cUTMACHINESBindingSource
-      // 
-      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource.DataSource = this.eNGINEERINGDataSet;
-      // 
       // label7
       // 
       this.label7.AutoSize = true;
@@ -273,11 +253,15 @@
       this.listBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+      this.listBox4.DisplayMember = "PARTNUM";
       this.listBox4.FormattingEnabled = true;
       this.listBox4.Location = new System.Drawing.Point(3, 38);
       this.listBox4.Name = "listBox4";
       this.listBox4.Size = new System.Drawing.Size(144, 264);
       this.listBox4.TabIndex = 5;
+      this.listBox4.ValueMember = "PARTID";
+      this.listBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox4_MouseClick);
+      this.listBox4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
       // 
       // tableLayoutPanel4
       // 
@@ -328,11 +312,6 @@
       this.comboBox1.TabIndex = 1;
       this.comboBox1.ValueMember = "PARTID";
       this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-      // 
-      // cUTPARTSBindingSource
-      // 
-      this.cUTPARTSBindingSource.DataMember = "CUT_PARTS";
-      this.cUTPARTSBindingSource.DataSource = this.eNGINEERINGDataSet;
       // 
       // label5
       // 
@@ -387,6 +366,31 @@
       this.testbutton1.Visible = false;
       this.testbutton1.Click += new System.EventHandler(this.testbutton1_Click);
       // 
+      // cUTMACHINESBindingSource2
+      // 
+      this.cUTMACHINESBindingSource2.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource2.DataSource = this.eNGINEERINGDataSet;
+      // 
+      // eNGINEERINGDataSet
+      // 
+      this.eNGINEERINGDataSet.DataSetName = "ENGINEERINGDataSet";
+      this.eNGINEERINGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      // 
+      // cUTMACHINESBindingSource1
+      // 
+      this.cUTMACHINESBindingSource1.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource1.DataSource = this.eNGINEERINGDataSet;
+      // 
+      // cUTMACHINESBindingSource
+      // 
+      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource.DataSource = this.eNGINEERINGDataSet;
+      // 
+      // cUTPARTSBindingSource
+      // 
+      this.cUTPARTSBindingSource.DataMember = "CUT_PARTS";
+      this.cUTPARTSBindingSource.DataSource = this.eNGINEERINGDataSet;
+      // 
       // cUT_MACHINESTableAdapter
       // 
       this.cUT_MACHINESTableAdapter.ClearBeforeFill = true;
@@ -410,12 +414,12 @@
       this.tableLayoutPanel2.ResumeLayout(false);
       this.tableLayoutPanel3.ResumeLayout(false);
       this.tableLayoutPanel3.PerformLayout();
+      this.tableLayoutPanel4.ResumeLayout(false);
+      this.tableLayoutPanel4.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.eNGINEERINGDataSet)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();
-      this.tableLayoutPanel4.ResumeLayout(false);
-      this.tableLayoutPanel4.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.cUTPARTSBindingSource)).EndInit();
       this.ResumeLayout(false);
 
