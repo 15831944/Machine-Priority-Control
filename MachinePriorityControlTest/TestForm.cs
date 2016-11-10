@@ -19,7 +19,7 @@ namespace MachinePriorityControlTest {
 
     [TestMethod]
     public void TestGetPriorityDict() {
-      MachinePriority mp = new MachinePriority(@"GE-51.55PB REV101");
+      MachinePriority mp = new MachinePriority(@"Z75295");
       mp.ShowDialog();
     }
   }
