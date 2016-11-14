@@ -5,11 +5,11 @@ using Machine_Priority_Control;
 namespace MachinePriorityControlTest {
   [TestClass]
   public class TestForm {
-    //[TestMethod]
-    //public void TestShowDialog() {
-    //  MachinePriority mp = new MachinePriority();
-    //  mp.ShowDialog();
-    //}
+    [TestMethod]
+    public void TestShowDialog() {
+      MachinePriority mp = new MachinePriority();
+      mp.ShowDialog();
+    }
 
     //[TestMethod]
     //public void TestShowDialogWithString() {
@@ -19,7 +19,7 @@ namespace MachinePriorityControlTest {
 
     [TestMethod]
     public void TestGetPriorityDict() {
-      MachinePriority mp = new MachinePriority(@"Z75295");
+      MachinePriority mp = new MachinePriority(@"KAB1303-01");
       mp.ShowDialog();
     }
   }
