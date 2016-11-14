@@ -17,7 +17,8 @@ namespace Machine_Priority_Control {
     public MachinePriority(string pre_selected_part) {
       PreSelectedPart = pre_selected_part;
       InitializeComponent();
-      cUTPARTSBindingSource.Filter = string.Format(@"PARTNUM LIKE '{0}%'", pre_selected_part);
+      cUTPARTSBindingSource.Filter = string.Format(@"PARTNUM LIKE '{0}%'",
+        pre_selected_part.Substring(0, pre_selected_part.Length - 2));
     }
 
     private void Form1_Load(object sender, EventArgs e) {
@@ -35,13 +36,11 @@ namespace Machine_Priority_Control {
 
     public Dictionary<int, int> get_priority_values() {
       int p = 0;
-
       if (comboBox1.SelectedValue != null &&
         int.TryParse(comboBox1.SelectedValue.ToString(), out p)) {
         return ENGINEERINGDataSet.get_priority_values_inner(p);
-      } else {
-        return new Dictionary<int, int>();
       }
+      return new Dictionary<int, int>();
     }
 
     private void get_priorities() {
@@ -117,9 +116,31 @@ namespace Machine_Priority_Control {
       return d;
     }
 
-    private void buttonOK_Click(object sender, EventArgs e) {
+    private void toggle_filter(bool on) {
+      if (on) {
+        cUTPARTSBindingSource.Filter = string.Format("PARTNUM LIKE '{0}%'", PreSelectedPart);
+        update_common_parts();
+      } else {
+        cUTPARTSBindingSource.Filter = string.Empty;
+        comboBox1.DataSource = cUTPARTSBindingSource;
+        int si = comboBox1.FindString(PreSelectedPart);
+        if (si > -1) {
+          comboBox1.SelectedIndex = si;
+        }
+      }
+    }
+
+    private void apply_changes() {
       DataRowView comboboxitem = (DataRowView)comboBox1.SelectedItem;
       ENGINEERINGDataSet.update_priority_values((int)comboboxitem[0], get_listbox_states());
+    }
+
+    private void buttonApply_Click(object sender, EventArgs e) {
+      apply_changes();
+    }
+
+    private void buttonOK_Click(object sender, EventArgs e) {
+      apply_changes();
       Close();
     }
 
@@ -159,6 +180,9 @@ namespace Machine_Priority_Control {
           cnc2string = cnc2[0].Value + '%';
         }
         listBox5.DataSource = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
+        if (checkBox1.Checked) {
+          comboBox1.DataSource = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
+        }
       }
     }
         
@@ -200,15 +224,15 @@ namespace Machine_Priority_Control {
     private void listBox5_SelectedIndexChanged(object sender, EventArgs e) {
       string partnum = (string)(listBox5.Items[listBox5.SelectedIndex] as DataRowView)[@"PARTNUM"];
       if (listBox5.Focused) {
-        comboBox1.SelectedIndex = comboBox1.FindString(partnum); 
+        comboBox1.SelectedIndex = comboBox1.FindString(partnum);
       }
     }
 
     private void checkBox1_CheckedChanged(object sender, EventArgs e) {
       if (checkBox1.Checked) {
-        cUTPARTSBindingSource.Filter = string.Format("PARTNUM LIKE '{0}%'", PreSelectedPart);
+        toggle_filter(true);
       } else {
-        cUTPARTSBindingSource.Filter = string.Empty;
+        toggle_filter(false);
       }
     }
   }

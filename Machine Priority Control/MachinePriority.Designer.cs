@@ -30,8 +30,9 @@
       this.components = new System.ComponentModel.Container();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-      this.buttonOK = new System.Windows.Forms.Button();
       this.buttonCancel = new System.Windows.Forms.Button();
+      this.buttonOK = new System.Windows.Forms.Button();
+      this.buttonApply = new System.Windows.Forms.Button();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
       this.listBox4 = new System.Windows.Forms.ListBox();
       this.cUTMACHINESBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
@@ -61,7 +62,6 @@
       this.cUT_PARTSTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_PARTSTableAdapter();
       this.cUTPARTSCUTMACHINEPROGRAMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.cUT_MACHINE_PROGRAMSTableAdapter = new Machine_Priority_Control.ENGINEERINGDataSetTableAdapters.CUT_MACHINE_PROGRAMSTableAdapter();
-      this.buttonApply = new System.Windows.Forms.Button();
       this.tableLayoutPanel1.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
@@ -113,6 +113,17 @@
       this.tableLayoutPanel2.Size = new System.Drawing.Size(722, 29);
       this.tableLayoutPanel2.TabIndex = 1;
       // 
+      // buttonCancel
+      // 
+      this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonCancel.Location = new System.Drawing.Point(3, 3);
+      this.buttonCancel.Name = "buttonCancel";
+      this.buttonCancel.Size = new System.Drawing.Size(234, 23);
+      this.buttonCancel.TabIndex = 14;
+      this.buttonCancel.Text = "Cancel";
+      this.buttonCancel.UseVisualStyleBackColor = true;
+      this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+      // 
       // buttonOK
       // 
       this.buttonOK.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -124,16 +135,16 @@
       this.buttonOK.UseVisualStyleBackColor = true;
       this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
       // 
-      // buttonCancel
+      // buttonApply
       // 
-      this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.buttonCancel.Location = new System.Drawing.Point(3, 3);
-      this.buttonCancel.Name = "buttonCancel";
-      this.buttonCancel.Size = new System.Drawing.Size(234, 23);
-      this.buttonCancel.TabIndex = 14;
-      this.buttonCancel.Text = "Cancel";
-      this.buttonCancel.UseVisualStyleBackColor = true;
-      this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+      this.buttonApply.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonApply.Location = new System.Drawing.Point(243, 3);
+      this.buttonApply.Name = "buttonApply";
+      this.buttonApply.Size = new System.Drawing.Size(234, 23);
+      this.buttonApply.TabIndex = 16;
+      this.buttonApply.Text = "Apply";
+      this.buttonApply.UseVisualStyleBackColor = true;
+      this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
       // 
       // tableLayoutPanel3
       // 
@@ -464,16 +475,6 @@
       // cUT_MACHINE_PROGRAMSTableAdapter
       // 
       this.cUT_MACHINE_PROGRAMSTableAdapter.ClearBeforeFill = true;
-      // 
-      // buttonApply
-      // 
-      this.buttonApply.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.buttonApply.Location = new System.Drawing.Point(243, 3);
-      this.buttonApply.Name = "buttonApply";
-      this.buttonApply.Size = new System.Drawing.Size(234, 23);
-      this.buttonApply.TabIndex = 16;
-      this.buttonApply.Text = "Apply";
-      this.buttonApply.UseVisualStyleBackColor = true;
       // 
       // MachinePriority
       // 
