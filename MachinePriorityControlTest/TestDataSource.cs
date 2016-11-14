@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Machine_Priority_Control;
 
@@ -23,17 +24,19 @@ namespace MachinePriorityControlTest {
     [TestMethod]
     public void TestUpdatePriorityValues() {
       System.Collections.Generic.Dictionary<int, int> orig_d = ENGINEERINGDataSet.get_priority_values_inner(422);
-      System.Collections.Generic.Dictionary<int, int> d = new System.Collections.Generic.Dictionary<int, int>();
-      d.Add(16, 3);
-      d.Add(6, 3);
-      d.Add(5, 3);
+      System.Collections.Generic.Dictionary<int, int> d = ENGINEERINGDataSet.get_priority_values_inner(422);
+      d[16] = 3;
+      d[6] = 3;
+      d[5] = 3;
       ENGINEERINGDataSet.update_priority_values(422, d);
       System.Collections.Generic.Dictionary<int, int> dd = ENGINEERINGDataSet.get_priority_values_inner(422);
       System.Collections.Generic.SortedDictionary<int, int> sorig_d = new System.Collections.Generic.SortedDictionary<int, int>(orig_d);
       System.Collections.Generic.SortedDictionary<int, int> sdd = new System.Collections.Generic.SortedDictionary<int, int>(dd);
       System.Collections.Generic.SortedDictionary<int, int> sd = new System.Collections.Generic.SortedDictionary<int, int>(d);
-      Assert.IsTrue(sorig_d != sdd);
-      Assert.IsTrue(sd.Equals(sdd));
+      var dict = sorig_d.Where(entry => sdd[entry.Key] != entry.Value).ToDictionary(entry => entry.Key, entry => entry.Value);
+      Assert.IsTrue(dict.Count > 0);
+      dict = sdd.Where(entry => sd[entry.Key] != entry.Value).ToDictionary(entry => entry.Key, entry => entry.Value);
+      Assert.IsTrue(dict.Count == 0);
     }
   }
 }
