@@ -18,6 +18,7 @@ namespace Machine_Priority_Control {
     public MachinePriority(string pre_selected_part) {
       PreSelectedPart = pre_selected_part;
       InitializeComponent();
+      Text = PreSelectedPart;
       cUTPARTSBindingSource.Filter = string.Format(@"PARTNUM LIKE '{0}%'",
         pre_selected_part.Substring(0, pre_selected_part.Length - 2));
     }
