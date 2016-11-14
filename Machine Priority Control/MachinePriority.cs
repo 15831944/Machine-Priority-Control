@@ -19,8 +19,7 @@ namespace Machine_Priority_Control {
       PreSelectedPart = pre_selected_part;
       InitializeComponent();
       Text = PreSelectedPart;
-      cUTPARTSBindingSource.Filter = string.Format(@"PARTNUM LIKE '{0}%'",
-        pre_selected_part.Substring(0, pre_selected_part.Length - 2));
+      cUTPARTSBindingSource.Filter = string.Format(@"PARTNUM LIKE '{0}'", PreSelectedPart);
     }
 
     private void Form1_Load(object sender, EventArgs e) {
@@ -120,7 +119,7 @@ namespace Machine_Priority_Control {
 
     private void toggle_filter(bool on) {
       if (on) {
-        cUTPARTSBindingSource.Filter = string.Format("PARTNUM LIKE '{0}%'", PreSelectedPart);
+        cUTPARTSBindingSource.Filter = string.Format("PARTNUM LIKE '{0}'", PreSelectedPart);
         update_common_parts();
       } else {
         cUTPARTSBindingSource.Filter = string.Empty;
@@ -176,14 +175,14 @@ namespace Machine_Priority_Control {
         string cnc1string = string.Empty;
         string cnc2string = string.Empty;
         if (cnc1.Count > 0) {
-          cnc1string = cnc1[0].Value + '%';
+          cnc1string = '%' + cnc1[0].Value + '%';
         }
 
         if (cnc2.Count > 0) {
-          cnc2string = cnc2[0].Value + '%';
+          cnc2string = '%' + cnc2[0].Value + '%';
         }
         listBox5.DataSource = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
-        if (checkBox1.Checked) {
+        if (checkBox1.Checked && cnc1string != string.Empty) {
           comboBox1.DataSource = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
         }
       }
