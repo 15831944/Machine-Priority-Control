@@ -11,11 +11,11 @@ namespace MachinePriorityControlTest {
       mp.ShowDialog();
     }
 
-    //[TestMethod]
-    //public void TestShowDialogWithString() {
-    //  MachinePriority mp = new MachinePriority(@"GAFX1402-08-03-01");
-    //  mp.ShowDialog();
-    //}
+    [TestMethod]
+    public void TestShowDialogWithString() {
+      MachinePriority mp = new MachinePriority(@"MEFX1608-01-04");
+      mp.ShowDialog();
+    }
 
     [TestMethod]
     public void TestGetPriorityDict() {

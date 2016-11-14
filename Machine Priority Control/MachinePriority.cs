@@ -12,6 +12,7 @@ namespace Machine_Priority_Control {
   public partial class MachinePriority : Form {
     public MachinePriority() {
       InitializeComponent();
+      checkBox1.Checked = false;
     }
 
     public MachinePriority(string pre_selected_part) {
@@ -166,7 +167,8 @@ namespace Machine_Priority_Control {
     private void update_common_parts() {
       System.Text.RegularExpressions.MatchCollection cnc1;
       System.Text.RegularExpressions.MatchCollection cnc2;
-      System.Text.RegularExpressions.Regex rx = new System.Text.RegularExpressions.Regex(@"^([0-9]+)");
+      System.Text.RegularExpressions.Regex rx =
+        new System.Text.RegularExpressions.Regex(Properties.Settings.Default.CNCProgramRegex);
       if (comboBox1.SelectedItem != null) {
         cnc1 = rx.Matches((comboBox1.SelectedItem as DataRowView)[@"CNC1"].ToString());
         cnc2 = rx.Matches((comboBox1.SelectedItem as DataRowView)[@"CNC2"].ToString());

@@ -56,5 +56,17 @@ namespace Machine_Priority_Control.Properties {
                 this["FormLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("^([0-9]+|[A-Za-z]{3,4}[0-9]{4}.*)")]
+        public string CNCProgramRegex {
+            get {
+                return ((string)(this["CNCProgramRegex"]));
+            }
+            set {
+                this["CNCProgramRegex"] = value;
+            }
+        }
     }
 }
