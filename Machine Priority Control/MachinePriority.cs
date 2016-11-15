@@ -165,7 +165,9 @@ namespace Machine_Priority_Control {
     }
 
     private void Form1_Load(object sender, EventArgs e) {
+#if DEBUG
       Show();
+#endif	
       // TODO: This line of code loads data into the 'eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS' table. You can move, or remove it, as needed.
       //this.cUT_MACHINE_PROGRAMSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS);
       this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
