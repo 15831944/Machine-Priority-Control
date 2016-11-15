@@ -22,19 +22,6 @@ namespace Machine_Priority_Control {
       cUTPARTSBindingSource.Filter = string.Format(@"PARTNUM LIKE '{0}'", PreSelectedPart);
     }
 
-    private void Form1_Load(object sender, EventArgs e) {
-      // TODO: This line of code loads data into the 'eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS' table. You can move, or remove it, as needed.
-      //this.cUT_MACHINE_PROGRAMSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS);
-      this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
-      this.cUT_MACHINESTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINES);
-      Show();
-      get_priorities();
-      Size = Properties.Settings.Default.FormSize;
-      Location = Properties.Settings.Default.FormLocation;
-      update_common_parts();
-      listBox5.Focus();
-    }
-
     public Dictionary<int, int> get_priority_values() {
       int p = 0;
       if (comboBox1.SelectedValue != null &&
@@ -136,6 +123,34 @@ namespace Machine_Priority_Control {
       ENGINEERINGDataSet.update_priority_values((int)comboboxitem[0], get_listbox_states());
     }
 
+    private void update_common_parts() {
+      System.Text.RegularExpressions.MatchCollection cnc1;
+      System.Text.RegularExpressions.MatchCollection cnc2;
+      System.Text.RegularExpressions.Regex rx =
+        new System.Text.RegularExpressions.Regex(Properties.Settings.Default.CNCProgramRegex);
+
+      if (comboBox1.SelectedItem != null) {
+        cnc1 = rx.Matches((comboBox1.SelectedItem as DataRowView)[@"CNC1"].ToString());
+        cnc2 = rx.Matches((comboBox1.SelectedItem as DataRowView)[@"CNC2"].ToString());
+        string cnc1string = string.Empty;
+        string cnc2string = string.Empty;
+        if (cnc1.Count > 0) {
+          cnc1string = '%' + cnc1[0].Value + '%';
+        }
+
+        if (cnc2.Count > 0) {
+          cnc2string = '%' + cnc2[0].Value + '%';
+        }
+        ENGINEERINGDataSet.CUT_PARTSDataTable c = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
+        listBox5.DataSource = c;
+        if (checkBox1.Checked && cnc1string != string.Empty) {
+          comboBox1.DataSource = c;
+        }
+      }
+    }
+
+    public string PreSelectedPart { get; set; }
+
     private void buttonApply_Click(object sender, EventArgs e) {
       apply_changes();
     }
@@ -149,45 +164,41 @@ namespace Machine_Priority_Control {
       Close();
     }
 
+    private void Form1_Load(object sender, EventArgs e) {
+      Show();
+      // TODO: This line of code loads data into the 'eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS' table. You can move, or remove it, as needed.
+      //this.cUT_MACHINE_PROGRAMSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS);
+      this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
+      this.cUT_MACHINESTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINES);
+      get_priorities();
+      Size = Properties.Settings.Default.FormSize;
+      Location = Properties.Settings.Default.FormLocation;
+      update_common_parts();
+      listBox5.Focus();
+    }
+
     private void MachinePriority_FormClosing(object sender, FormClosingEventArgs e) {
       Properties.Settings.Default.FormSize = Size;
       Properties.Settings.Default.FormLocation = Location;
       Properties.Settings.Default.Save();
     }
 
-    public string PreSelectedPart { get; set; }
-
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+      if (!(comboBox1.DataSource is BindingSource)) {
+        ENGINEERINGDataSet.CUT_PARTSDataTable c = (ENGINEERINGDataSet.CUT_PARTSDataTable)comboBox1.DataSource;
+        textBox1.Text = (string)c[comboBox1.SelectedIndex][@"CNC1"];
+        textBox2.Text = (string)c[comboBox1.SelectedIndex][@"CNC2"];
+      }
       get_priorities();
-      if (comboBox1.Focused && !listBox5.Focused) {
+      if (!checkBox1.Checked && comboBox1.Focused && !listBox5.Focused) {
         update_common_parts();
       }
     }
 
-    private void update_common_parts() {
-      System.Text.RegularExpressions.MatchCollection cnc1;
-      System.Text.RegularExpressions.MatchCollection cnc2;
-      System.Text.RegularExpressions.Regex rx =
-        new System.Text.RegularExpressions.Regex(Properties.Settings.Default.CNCProgramRegex);
-      if (comboBox1.SelectedItem != null) {
-        cnc1 = rx.Matches((comboBox1.SelectedItem as DataRowView)[@"CNC1"].ToString());
-        cnc2 = rx.Matches((comboBox1.SelectedItem as DataRowView)[@"CNC2"].ToString());
-        string cnc1string = string.Empty;
-        string cnc2string = string.Empty;
-        if (cnc1.Count > 0) {
-          cnc1string = '%' + cnc1[0].Value + '%';
-        }
+    private void comboBox1_MouseClick(object sender, MouseEventArgs e) {
 
-        if (cnc2.Count > 0) {
-          cnc2string = '%' + cnc2[0].Value + '%';
-        }
-        listBox5.DataSource = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
-        if (checkBox1.Checked && cnc1string != string.Empty) {
-          comboBox1.DataSource = cUT_PARTSTableAdapter.GetDataByCNCProg(cnc1string, cnc2string);
-        }
-      }
     }
-        
+
     private void listBox1_MouseClick(object sender, MouseEventArgs e) {
       int si = listBox1.IndexFromPoint(e.Location);
       bool selected = si != -1 && listBox1.GetSelected(si);
@@ -216,17 +227,22 @@ namespace Machine_Priority_Control {
     }
 
     private void listBox5_MouseClick(object sender, MouseEventArgs e) {
-      int selected_idx = listBox5.IndexFromPoint(e.Location);
-      if (selected_idx > -1) {
-        string partnum = (string)(listBox5.Items[selected_idx] as DataRowView)[@"PARTNUM"];
-        comboBox1.SelectedIndex = comboBox1.FindString(partnum);
-      }
+      //int selected_idx = listBox5.IndexFromPoint(e.Location);
+      //if (selected_idx > -1) {
+      //  string partnum = (string)(listBox5.Items[selected_idx] as DataRowView)[@"PARTNUM"];
+      //  comboBox1.SelectedIndex = comboBox1.FindString(partnum);
+      //}
     }
 
     private void listBox5_SelectedIndexChanged(object sender, EventArgs e) {
       string partnum = (string)(listBox5.Items[listBox5.SelectedIndex] as DataRowView)[@"PARTNUM"];
       if (listBox5.Focused) {
         comboBox1.SelectedIndex = comboBox1.FindString(partnum);
+        if (!(comboBox1.DataSource is BindingSource)) {
+          ENGINEERINGDataSet.CUT_PARTSDataTable c = (ENGINEERINGDataSet.CUT_PARTSDataTable)comboBox1.DataSource;
+          textBox1.Text = (string)c[comboBox1.SelectedIndex][@"CNC1"];
+          textBox2.Text = (string)c[comboBox1.SelectedIndex][@"CNC2"];
+        }
       }
     }
 
