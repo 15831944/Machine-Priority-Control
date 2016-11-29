@@ -83,7 +83,7 @@ namespace Machine_Priority_Control {
               !listBox2.GetSelected(i) &&
               !listBox3.GetSelected(i) &&
               !listBox4.GetSelected(i)) {
-                d.Add((int)item[0], -1);
+            d.Add((int)item[0], -1);
           }
 
           if (listBox4.GetSelected(i))
@@ -207,6 +207,7 @@ namespace Machine_Priority_Control {
       if (selected) {
         listBox2.SetSelected(si, false);
         listBox3.SetSelected(si, false);
+        listBox4.SetSelected(si, false);
       }
     }
 
@@ -216,6 +217,7 @@ namespace Machine_Priority_Control {
       if (selected) {
         listBox1.SetSelected(si, false);
         listBox3.SetSelected(si, false);
+        listBox4.SetSelected(si, false);
       }
     }
 
@@ -225,6 +227,17 @@ namespace Machine_Priority_Control {
       if (selected) {
         listBox1.SetSelected(si, false);
         listBox2.SetSelected(si, false);
+        listBox4.SetSelected(si, false);
+      }
+    }
+
+    private void listBox4_MouseClick(object sender, MouseEventArgs e) {
+      int si = listBox4.IndexFromPoint(e.Location);
+      bool selected = si != -1 && listBox4.GetSelected(si);
+      if (selected) {
+        listBox1.SetSelected(si, false);
+        listBox2.SetSelected(si, false);
+        listBox3.SetSelected(si, false);
       }
     }
 
