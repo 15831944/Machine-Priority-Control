@@ -6748,7 +6748,7 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CUT_MACHINES] WHERE (([MACHID] = @Original_MACHID) AND ((@IsNull_MACHNUM = 1 AND [MACHNUM] IS NULL) OR ([MACHNUM] = @Original_MACHNUM)) AND ((@IsNull_MACHNAME = 1 AND [MACHNAME] IS NULL) OR ([MACHNAME] = @Original_MACHNAME)) AND ((@IsNull_NICKNAME = 1 AND [NICKNAME] IS NULL) OR ([NICKNAME] = @Original_NICKNAME)) AND ((@IsNull_TYPE = 1 AND [TYPE] IS NULL) OR ([TYPE] = @Original_TYPE)) AND ((@IsNull_LOC = 1 AND [LOC] IS NULL) OR ([LOC] = @Original_LOC)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [CUT_MACHINES] WHERE (([MACHID] = @Original_MACHID) AND ((@IsNull_MACHNUM = 1 AND [MACHNUM] IS NULL) OR ([MACHNUM] = @Original_MACHNUM)) AND ((@IsNull_MACHNAME = 1 AND [MACHNAME] IS NULL) OR ([MACHNAME] = @Original_MACHNAME)) AND ((@IsNull_NICKNAME = 1 AND [NICKNAME] IS NULL) OR ([NICKNAME] = @Original_NICKNAME)) AND ((@IsNull_TYPE = 1 AND [TYPE] IS NULL) OR ([TYPE] = @Original_TYPE)) AND ((@IsNull_LOC = 1 AND [LOC] IS NULL) OR ([LOC] = @Original_LOC)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MACHID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MACHID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MACHNUM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MACHNUM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -6763,10 +6763,10 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LOC", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LOC", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CUT_MACHINES] ([MACHNUM], [MACHNAME], [NICKNAME], [TYPE], [LOC" +
-                "]) VALUES (@MACHNUM, @MACHNAME, @NICKNAME, @TYPE, @LOC);\r\nSELECT MACHID, MACHNUM" +
-                ", MACHNAME, NICKNAME, TYPE, LOC FROM CUT_MACHINES WHERE (MACHID = SCOPE_IDENTITY" +
-                "())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [CUT_MACHINES] ([MACHNUM], [MACHNAME], [NICKNAME], [TYPE], [LOC]) VAL" +
+                "UES (@MACHNUM, @MACHNAME, @NICKNAME, @TYPE, @LOC);\r\nSELECT MACHID, MACHNUM, MACH" +
+                "NAME, NICKNAME, TYPE, LOC FROM CUT_MACHINES WHERE (MACHID = SCOPE_IDENTITY()) OR" +
+                "DER BY MSORT";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MACHNUM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MACHNUM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MACHNAME", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MACHNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6775,8 +6775,8 @@ SELECT PROGID, MACHID, PARTID, PRIORITY FROM CUT_MACHINE_PROGRAMS WHERE (PROGID 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LOC", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LOC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CUT_MACHINES] SET [MACHNUM] = @MACHNUM, [MACHNAME] = @MACHNAME, [NICKNAME] = @NICKNAME, [TYPE] = @TYPE, [LOC] = @LOC WHERE (([MACHID] = @Original_MACHID) AND ((@IsNull_MACHNUM = 1 AND [MACHNUM] IS NULL) OR ([MACHNUM] = @Original_MACHNUM)) AND ((@IsNull_MACHNAME = 1 AND [MACHNAME] IS NULL) OR ([MACHNAME] = @Original_MACHNAME)) AND ((@IsNull_NICKNAME = 1 AND [NICKNAME] IS NULL) OR ([NICKNAME] = @Original_NICKNAME)) AND ((@IsNull_TYPE = 1 AND [TYPE] IS NULL) OR ([TYPE] = @Original_TYPE)) AND ((@IsNull_LOC = 1 AND [LOC] IS NULL) OR ([LOC] = @Original_LOC)));
-SELECT MACHID, MACHNUM, MACHNAME, NICKNAME, TYPE, LOC FROM CUT_MACHINES WHERE (MACHID = @MACHID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [CUT_MACHINES] SET [MACHNUM] = @MACHNUM, [MACHNAME] = @MACHNAME, [NICKNAME] = @NICKNAME, [TYPE] = @TYPE, [LOC] = @LOC WHERE (([MACHID] = @Original_MACHID) AND ((@IsNull_MACHNUM = 1 AND [MACHNUM] IS NULL) OR ([MACHNUM] = @Original_MACHNUM)) AND ((@IsNull_MACHNAME = 1 AND [MACHNAME] IS NULL) OR ([MACHNAME] = @Original_MACHNAME)) AND ((@IsNull_NICKNAME = 1 AND [NICKNAME] IS NULL) OR ([NICKNAME] = @Original_NICKNAME)) AND ((@IsNull_TYPE = 1 AND [TYPE] IS NULL) OR ([TYPE] = @Original_TYPE)) AND ((@IsNull_LOC = 1 AND [LOC] IS NULL) OR ([LOC] = @Original_LOC)));
+SELECT MACHID, MACHNUM, MACHNAME, NICKNAME, TYPE, LOC FROM CUT_MACHINES WHERE (MACHID = @MACHID) ORDER BY MSORT";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MACHNUM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MACHNUM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MACHNAME", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MACHNAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6810,7 +6810,8 @@ SELECT MACHID, MACHNUM, MACHNAME, NICKNAME, TYPE, LOC FROM CUT_MACHINES WHERE (M
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MACHID, MACHNUM, MACHNAME, NICKNAME, TYPE, LOC FROM dbo.CUT_MACHINES";
+            this._commandCollection[0].CommandText = "SELECT        MACHID, MACHNUM, MACHNAME, NICKNAME, TYPE, LOC\r\nFROM            CUT" +
+                "_MACHINES\r\nORDER BY MSORT";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
