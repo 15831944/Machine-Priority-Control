@@ -19,5 +19,11 @@
     <Setting Name="CNCProgramRegex" Type="System.String" Scope="User">
       <Value Profile="(Default)">^([0-9]+|[A-Za-z]{3,4}[0-9]{4}.*)</Value>
     </Setting>
+    <Setting Name="PartNotInCutlistMessage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">{0} not found in the Engineering Database.</Value>
+    </Setting>
+    <Setting Name="PartNotInCutlistText" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Cannot proceed.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

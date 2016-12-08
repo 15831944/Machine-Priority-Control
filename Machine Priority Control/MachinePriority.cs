@@ -165,16 +165,25 @@ namespace Machine_Priority_Control {
     }
 
     private void Form1_Load(object sender, EventArgs e) {
+      Size = Properties.Settings.Default.FormSize;
+      Location = Properties.Settings.Default.FormLocation;
 #if DEBUG
       Show();
-#endif	
+#endif
       // TODO: This line of code loads data into the 'eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS' table. You can move, or remove it, as needed.
       //this.cUT_MACHINE_PROGRAMSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINE_PROGRAMS);
       this.cUT_PARTSTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_PARTS);
       this.cUT_MACHINESTableAdapter.Fill(this.eNGINEERINGDataSet.CUT_MACHINES);
       get_priorities();
-      Size = Properties.Settings.Default.FormSize;
-      Location = Properties.Settings.Default.FormLocation;
+      if (comboBox1.Items.Count < 1) {
+        if (PreSelectedPart.Length == 0) {
+          PreSelectedPart = "NULL";
+        }
+        string message = string.Format(Properties.Settings.Default.PartNotInCutlistMessage, PreSelectedPart);
+        string title = Properties.Settings.Default.PartNotInCutlistText;
+        System.Windows.Forms.MessageBox.Show(message, title, MessageBoxButtons.OK);
+        Close();
+      }
       update_common_parts();
       listBox5.Focus();
     }

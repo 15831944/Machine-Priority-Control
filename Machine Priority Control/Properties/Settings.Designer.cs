@@ -68,5 +68,23 @@ namespace Machine_Priority_Control.Properties {
                 this["CNCProgramRegex"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("{0} not found in the Engineering Database.")]
+        public string PartNotInCutlistMessage {
+            get {
+                return ((string)(this["PartNotInCutlistMessage"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cannot proceed.")]
+        public string PartNotInCutlistText {
+            get {
+                return ((string)(this["PartNotInCutlistText"]));
+            }
+        }
     }
 }
