@@ -29,5 +29,11 @@ namespace MachinePriorityControlTest {
       MachinePriority mp = new MachinePriority(@"KOHD1614-01");
       mp.ShowDialog();
     }
+
+    [TestMethod]
+    public void TestNotInThere() {
+      MachinePriority mp = new MachinePriority(@"Farts");
+      mp.ShowDialog();
+    }
   }
 }
