@@ -189,6 +189,11 @@ namespace Machine_Priority_Control {
     }
 
     private void MachinePriority_FormClosing(object sender, FormClosingEventArgs e) {
+      ENGINEERINGDataSetTableAdapters.QueriesTableAdapter qta = new ENGINEERINGDataSetTableAdapters.QueriesTableAdapter();
+      int user = (int)qta.GetCurrentAuthor(Environment.UserName);
+      if (qta.IncrementOdometer(10, user) < 1) {
+        qta.CreateOdometerEntry(1, 10, user);
+      }
       Properties.Settings.Default.FormSize = Size;
       Properties.Settings.Default.FormLocation = Location;
       Properties.Settings.Default.Save();
