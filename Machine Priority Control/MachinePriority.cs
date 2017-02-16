@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 namespace Machine_Priority_Control {
   public partial class MachinePriority : Form {
+    private List<ListBox> lbs = new List<ListBox>();
     public MachinePriority() {
       InitializeComponent();
       checkBox1.Checked = false;
+      lbs.AddRange(new ListBox[] { listBox1, listBox2, listBox3, listBox4 });
     }
 
     public MachinePriority(string pre_selected_part) {
       PreSelectedPart = pre_selected_part;
       InitializeComponent();
       Text = PreSelectedPart;
+      lbs.AddRange(new ListBox[] { listBox1, listBox2, listBox3, listBox4 });
       cUTPARTSBindingSource.Filter = string.Format(@"PARTNUM LIKE '{0}'", PreSelectedPart);
     }
 
@@ -215,52 +218,14 @@ namespace Machine_Priority_Control {
 
     }
 
-    private void listBox1_MouseClick(object sender, MouseEventArgs e) {
-      int si = listBox1.IndexFromPoint(e.Location);
-      bool selected = si != -1 && listBox1.GetSelected(si);
-      if (selected) {
-        listBox2.SetSelected(si, false);
-        listBox3.SetSelected(si, false);
-        listBox4.SetSelected(si, false);
+    private void radioSelect(object sender, MouseEventArgs e) {
+      int si = (sender as ListBox).IndexFromPoint(e.Location);
+      bool selected = si != -1 && (sender as ListBox).GetSelected(si);
+      foreach (ListBox lb in lbs) {
+        if ((sender != lb) && selected) {
+          lb.SetSelected(si, false);
+        }
       }
-    }
-
-    private void listBox2_MouseClick(object sender, MouseEventArgs e) {
-      int si = listBox2.IndexFromPoint(e.Location);
-      bool selected = si != -1 && listBox2.GetSelected(si);
-      if (selected) {
-        listBox1.SetSelected(si, false);
-        listBox3.SetSelected(si, false);
-        listBox4.SetSelected(si, false);
-      }
-    }
-
-    private void listBox3_MouseClick(object sender, MouseEventArgs e) {
-      int si = listBox3.IndexFromPoint(e.Location);
-      bool selected = si != -1 && listBox3.GetSelected(si);
-      if (selected) {
-        listBox1.SetSelected(si, false);
-        listBox2.SetSelected(si, false);
-        listBox4.SetSelected(si, false);
-      }
-    }
-
-    private void listBox4_MouseClick(object sender, MouseEventArgs e) {
-      int si = listBox4.IndexFromPoint(e.Location);
-      bool selected = si != -1 && listBox4.GetSelected(si);
-      if (selected) {
-        listBox1.SetSelected(si, false);
-        listBox2.SetSelected(si, false);
-        listBox3.SetSelected(si, false);
-      }
-    }
-
-    private void listBox5_MouseClick(object sender, MouseEventArgs e) {
-      //int selected_idx = listBox5.IndexFromPoint(e.Location);
-      //if (selected_idx > -1) {
-      //  string partnum = (string)(listBox5.Items[selected_idx] as DataRowView)[@"PARTNUM"];
-      //  comboBox1.SelectedIndex = comboBox1.FindString(partnum);
-      //}
     }
 
     private void listBox5_SelectedIndexChanged(object sender, EventArgs e) {

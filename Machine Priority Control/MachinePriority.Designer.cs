@@ -191,7 +191,7 @@
       this.listBox4.Size = new System.Drawing.Size(144, 259);
       this.listBox4.TabIndex = 15;
       this.listBox4.ValueMember = "MACHID";
-      this.listBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox4_MouseClick);
+      this.listBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.radioSelect);
       // 
       // cUTMACHINESBindingSource3
       // 
@@ -226,7 +226,6 @@
       this.listBox5.Size = new System.Drawing.Size(144, 264);
       this.listBox5.TabIndex = 7;
       this.listBox5.ValueMember = "PARTID";
-      this.listBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox5_MouseClick);
       this.listBox5.SelectedIndexChanged += new System.EventHandler(this.listBox5_SelectedIndexChanged);
       // 
       // label3
@@ -281,7 +280,7 @@
       this.listBox3.Size = new System.Drawing.Size(146, 259);
       this.listBox3.TabIndex = 13;
       this.listBox3.ValueMember = "MACHID";
-      this.listBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseClick);
+      this.listBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.radioSelect);
       // 
       // cUTMACHINESBindingSource2
       // 
@@ -304,7 +303,7 @@
       this.listBox2.Size = new System.Drawing.Size(144, 259);
       this.listBox2.TabIndex = 11;
       this.listBox2.ValueMember = "MACHID";
-      this.listBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseClick);
+      this.listBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.radioSelect);
       // 
       // cUTMACHINESBindingSource1
       // 
@@ -327,7 +326,7 @@
       this.listBox1.Size = new System.Drawing.Size(144, 259);
       this.listBox1.TabIndex = 9;
       this.listBox1.ValueMember = "MACHID";
-      this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+      this.listBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.radioSelect);
       // 
       // cUTMACHINESBindingSource
       // 
